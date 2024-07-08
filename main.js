@@ -17,6 +17,32 @@ const inspirationalMessages = {
 
 let finalMessage = [];
 
-function randomMessage() {
+for (let prop in inspirationalMessages) {
   randomNumber = Math.floor(Math.random() * 4);
+  switch (prop) {
+    case "message":
+      finalMessage.push(
+        `Your qoute of the day is: ${inspirationalMessages[prop][randomNumber]}`
+      );
+      break;
+    case "author":
+      finalMessage.push(
+        `The author of the day is: ${inspirationalMessages[prop][randomNumber]}`
+      );
+      break;
+    case "advice":
+      finalMessage.push(
+        `Recommended advice: ${inspirationalMessages[prop][randomNumber]}`
+      );
+      break;
+    default:
+      finalMessage.push("There is not enough info.");
+  }
 }
+
+function randomMessage(quote) {
+  const formattedMessage = finalMessage.join(`\n`);
+  console.log(formattedMessage);
+}
+
+randomMessage(finalMessage);
